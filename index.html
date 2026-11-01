@@ -4,6 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Open in browser</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<script>
+  // Runs before anything is painted: outside in-app browsers, skip the guide entirely
+  (function () {
+    var ua = navigator.userAgent || "";
+    var enApp = /TikTok|musical_ly|BytedanceWebview|Instagram|FBAN|FBAV|Snapchat/i.test(ua);
+    if (!enApp && !/[?&]guia=1/.test(location.search)) {
+      document.documentElement.style.visibility = "hidden";
+      location.replace("https://gamerlito77.como-saber.com/");
+    }
+  })();
+</script>
 <style>
   :root { --bg:#f6f8fb; --card:#fff; --text:#111; --muted:#667; --blue:#1a73e8; --border:#e4e8ee; --soft:#f1f3f6; }
   @media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --card:#161b22; --text:#f0f3f6; --muted:#9aa4b2; --border:#2a313c; --soft:#1d242d; } }
