@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abrir en navegador</title>
+<style>
+  :root { --bg:#f6f8fb; --card:#fff; --text:#111; --muted:#667; --blue:#1a73e8; --border:#e4e8ee; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --card:#161b22; --text:#f0f3f6; --muted:#9aa4b2; --border:#2a313c; } }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,sans-serif; display:flex; justify-content:center; }
+  main { width:100%; max-width:460px; padding:24px 16px 32px; }
+  .globe { width:48px; height:48px; border-radius:50%; background:var(--blue); display:grid; place-items:center; margin:8px auto 16px; }
+  .globe svg { width:26px; height:26px; stroke:#fff; fill:none; stroke-width:2; }
+  h1 { font-size:1.7rem; line-height:1.15; text-align:center; margin:0 0 8px; letter-spacing:-.5px; }
+  .sub { text-align:center; color:var(--muted); margin:0 0 22px; }
+
+  .guide { position:relative; background:var(--card); border:1px solid var(--border); border-radius:24px; height:300px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,.08); }
+  .badge { position:absolute; top:14px; left:14px; z-index:3; background:#1b1f24; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.5px; padding:6px 10px; border-radius:999px; display:flex; align-items:center; gap:6px; }
+  .badge i { width:8px; height:8px; border-radius:50%; background:#2ecc71; }
+  .dots { position:absolute; top:12px; right:16px; font-size:1.4rem; font-weight:900; letter-spacing:2px; color:var(--muted); z-index:2; animation:pulse 3s infinite; }
+  .tip { position:absolute; top:44px; right:14px; background:#1b1f24; color:#fff; font-size:.7rem; font-weight:700; padding:5px 9px; border-radius:999px; animation:tip 3s infinite; }
+  .sheet { position:absolute; left:0; right:0; bottom:0; background:var(--card); border-top:1px solid var(--border); padding:6px 18px; transform:translateY(100%); animation:sheet 3s infinite; }
+  .sheet div { padding:14px 0; border-bottom:1px solid var(--border); font-size:1rem; }
+  .sheet div:last-child { border:0; }
+  .sheet .hit { font-weight:700; color:var(--blue); }
+  .arrow { position:absolute; left:46%; bottom:78px; font-size:2.6rem; color:#e63946; transform:rotate(45deg); opacity:0; animation:arrow 3s infinite; }
+  @keyframes pulse { 0%,25% { transform:scale(1); color:var(--muted); } 30%,45% { transform:scale(1.4); color:var(--blue); } 50%,100% { transform:scale(1); color:var(--muted); } }
+  @keyframes tip { 0%,45% { opacity:1; } 55%,100% { opacity:0; } }
+  @keyframes sheet { 0%,50% { transform:translateY(100%); } 62%,92% { transform:translateY(0); } 100% { transform:translateY(100%); } }
+  @keyframes arrow { 0%,62% { opacity:0; } 72%,92% { opacity:1; } 100% { opacity:0; } }
+
+  .steps { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px; }
+  .step { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:12px; display:flex; gap:10px; align-items:center; }
+  .step b.n { flex:none; width:30px; height:30px; border-radius:50%; background:var(--blue); color:#fff; display:grid; place-items:center; }
+  .step strong { display:block; font-size:.9rem; }
+  .step span { font-size:.75rem; color:var(--muted); }
+
+  .actions { margin-top:14px; display:grid; gap:10px; }
+  button, .btn { font:inherit; font-weight:700; border-radius:14px; padding:14px; border:0; cursor:pointer; text-align:center; text-decoration:none; }
+  .primary { background:var(--blue); color:#fff; }
+  .ghost { background:var(--card); color:var(--text); border:1px solid var(--border); }
+  .wait { margin-top:14px; display:flex; align-items:center; justify-content:center; gap:10px; background:rgba(26,115,232,.1); color:var(--blue); border-radius:14px; padding:14px; font-weight:600; }
+  .wait::before { content:""; width:16px; height:16px; border:3px solid rgba(26,115,232,.25); border-top-color:var(--blue); border-radius:50%; animation:spin 1s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
+</style>
+</head>
+<body>
+<main>
+  <div class="globe"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+  <h1>Pulsa <span>•••</span> y abre en navegador</h1>
+  <p class="sub" id="sub">Selecciona “Abrir en Safari” o “Abrir en el navegador”.</p>
+
+  <div class="guide" aria-hidden="true">
+    <div class="badge"><i></i>GUÍA ANIMADA</div>
+    <div class="dots">•••</div>
+    <div class="tip">PULSA AQUÍ</div>
+    <div class="arrow">➜</div>
+    <div class="sheet"><div>Reportar</div><div class="hit">Abrir en navegador</div><div>Copiar enlace</div></div>
+  </div>
+
+  <div class="steps">
+    <div class="step"><b class="n">1</b><div><strong>Pulsa •••</strong><span>Esquina superior</span></div></div>
+    <div class="step"><b class="n">2</b><div><strong>Abrir en navegador</strong><span>Safari o Chrome</span></div></div>
+  </div>
+
+  <div class="actions">
+    <button class="ghost" id="copy">Copiar enlace</button>
+    <a class="btn primary" id="go" href="#">Continuar aquí</a>
+  </div>
+  <div class="wait" id="wait">Esperando el navegador…</div>
+</main>
+<script>
+  // Cambia esta URL por la de tu página real
+  var DESTINO = "https://gamerlito77.como-saber.com/";
+
+  var ua = navigator.userAgent || "";
+  var enApp = /TikTok|musical_ly|BytedanceWebview|Instagram|FBAN|FBAV|Snapchat/i.test(ua);
+
+  // Si ya está en un navegador normal, pasa directo
+  if (!enApp && !/[?&]guia=1/.test(location.search)) location.replace(DESTINO);
+
+  document.getElementById("go").href = DESTINO;
+  document.getElementById("copy").onclick = function () {
+    var b = this;
+    (navigator.clipboard ? navigator.clipboard.writeText(DESTINO) : Promise.reject())
+      .then(function () { b.textContent = "¡Enlace copiado!"; })
+      .catch(function () { prompt("Copia este enlace:", DESTINO); });
+  };
+</script>
+</body>
+</html>
