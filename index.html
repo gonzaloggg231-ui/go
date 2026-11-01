@@ -40,13 +40,13 @@
   .badge { position:absolute; top:14px; left:14px; z-index:3; background:#1b1f24; color:#fff; font-size:.7rem; font-weight:700; letter-spacing:.5px; padding:6px 10px; border-radius:999px; display:flex; align-items:center; gap:6px; }
   .badge i { width:8px; height:8px; border-radius:50%; background:#2ecc71; }
   .dots { position:absolute; top:10px; right:16px; z-index:2; font-size:1.6rem; font-weight:900; letter-spacing:2px; line-height:1; color:var(--text); }
-  .dim { position:absolute; inset:0; background:#000; opacity:0; z-index:4; animation:dim 7s infinite; }
-  .sheet { position:absolute; left:0; right:0; bottom:0; z-index:5; background:var(--card); border-radius:22px 22px 0 0; padding:8px 20px 14px; transform:translateY(105%); animation:sheet 7s infinite; }
+  .dim { position:absolute; inset:0; background:#000; opacity:0; z-index:4; animation:dim 4s infinite; }
+  .sheet { position:absolute; left:0; right:0; bottom:0; z-index:5; background:var(--card); border-radius:22px 22px 0 0; padding:8px 20px 14px; transform:translateY(105%); animation:sheet 4s infinite; }
   .sheet div { display:flex; align-items:center; gap:14px; padding:14px 0; font-size:1.02rem; font-weight:500; }
   .sheet div + div { border-top:1px solid var(--border); }
   .sheet svg { width:20px; height:20px; stroke:currentColor; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-  .a1 { position:absolute; top:34px; right:22px; z-index:3; width:70px; height:56px; animation:a1 7s infinite; }
-  .a2 { position:absolute; top:150px; right:28px; z-index:6; width:84px; height:64px; opacity:0; animation:a2 7s infinite; }
+  .a1 { position:absolute; top:34px; right:22px; z-index:3; width:70px; height:56px; animation:a1 4s infinite; }
+  .a2 { position:absolute; top:172px; right:84px; z-index:6; width:84px; height:64px; opacity:0; animation:a2 4s infinite; }
   .hit { background:var(--soft); margin:0 -20px; padding-left:20px !important; padding-right:20px !important; border-radius:6px; }
   @keyframes dim { 0%,42% { opacity:0; } 50%,92% { opacity:.55; } 100% { opacity:0; } }
   @keyframes sheet { 0%,48% { transform:translateY(105%); } 58%,92% { transform:translateY(0); } 100% { transform:translateY(105%); } }
