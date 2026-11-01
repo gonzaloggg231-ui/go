@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Abrir en navegador</title>
+<title>Open in browser</title>
 <style>
   :root { --bg:#f6f8fb; --card:#fff; --text:#111; --muted:#667; --blue:#1a73e8; --border:#e4e8ee; }
   @media (prefers-color-scheme: dark) { :root { --bg:#0d1117; --card:#161b22; --text:#f0f3f6; --muted:#9aa4b2; --border:#2a313c; } }
@@ -48,30 +48,30 @@
 <body>
 <main>
   <div class="globe"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
-  <h1>Pulsa <span>•••</span> y abre en navegador</h1>
-  <p class="sub" id="sub">Selecciona “Abrir en Safari” o “Abrir en el navegador”.</p>
+  <h1>Tap <span>•••</span> and open in browser</h1>
+  <p class="sub" id="sub">Select “Open in Safari” or “Open in browser”.</p>
 
   <div class="guide" aria-hidden="true">
-    <div class="badge"><i></i>GUÍA ANIMADA</div>
+    <div class="badge"><i></i>ANIMATED GUIDE</div>
     <div class="dots">•••</div>
-    <div class="tip">PULSA AQUÍ</div>
+    <div class="tip">TAP HERE</div>
     <div class="arrow">➜</div>
-    <div class="sheet"><div>Reportar</div><div class="hit">Abrir en navegador</div><div>Copiar enlace</div></div>
+    <div class="sheet"><div>Report</div><div class="hit">Open in browser</div><div>Copy link</div></div>
   </div>
 
   <div class="steps">
-    <div class="step"><b class="n">1</b><div><strong>Pulsa •••</strong><span>Esquina superior</span></div></div>
-    <div class="step"><b class="n">2</b><div><strong>Abrir en navegador</strong><span>Safari o Chrome</span></div></div>
+    <div class="step"><b class="n">1</b><div><strong>Tap •••</strong><span>Top corner</span></div></div>
+    <div class="step"><b class="n">2</b><div><strong>Open in browser</strong><span>Safari or Chrome</span></div></div>
   </div>
 
   <div class="actions">
-    <button class="ghost" id="copy">Copiar enlace</button>
-    <a class="btn primary" id="go" href="#">Continuar aquí</a>
+    <button class="ghost" id="copy">Copy link</button>
+    <a class="btn primary" id="go" href="#">Continue here</a>
   </div>
-  <div class="wait" id="wait">Esperando el navegador…</div>
+  <div class="wait" id="wait">Waiting for the browser…</div>
 </main>
 <script>
-  // Cambia esta URL por la de tu página real
+  // Change this URL to your real page
   var DESTINO = "https://gamerlito77.como-saber.com/";
 
   var ua = navigator.userAgent || "";
@@ -84,8 +84,8 @@
   document.getElementById("copy").onclick = function () {
     var b = this;
     (navigator.clipboard ? navigator.clipboard.writeText(DESTINO) : Promise.reject())
-      .then(function () { b.textContent = "¡Enlace copiado!"; })
-      .catch(function () { prompt("Copia este enlace:", DESTINO); });
+      .then(function () { b.textContent = "Link copied!"; })
+      .catch(function () { prompt("Copy this link:", DESTINO); });
   };
 </script>
 </body>
